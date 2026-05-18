@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Инициализация графиков
+    window.addEventListener(
+        'load',
+        () => {
+
+            initSidebarPermissions()
+
+        }
+    )
     initActivityChart();
     initDistributionChart();
     
@@ -444,4 +452,81 @@ function initAnnouncements() {
     loadAnnouncements();
     setupAnnouncementModal();
     setupDeleteConfirmModal();
+}
+
+function initSidebarPermissions() {
+
+	const storedUser =
+		localStorage.getItem('userData') ||
+		localStorage.getItem('user')
+
+	if (!storedUser) return
+
+	const user = JSON.parse(storedUser)
+	const role = user.role
+
+	console.log('Role:', role)
+
+	const permissions = {
+		manager: [
+			'dashboard',
+			'projects',
+			'tasks',
+			'employees',
+			'clients',
+			'finance',
+			'reports',
+			'settings'
+		],
+
+		employee: [
+			'dashboard',
+			'projects',
+			'tasks',
+			'reports',
+			'settings'
+		],
+
+		client: [
+			'dashboard',
+			'projects',
+			'tasks',
+			'finance',
+			'reports',
+			'settings'
+		]
+	}
+
+	const allowedPages = permissions[role]
+
+	if (!allowedPages) return
+
+	const menuItems =
+	document.querySelectorAll(
+		'.sidebar__item'
+	)
+
+	menuItems.forEach(item => {
+
+		const page =
+		item.getAttribute(
+			'data-page'
+		)
+
+		console.log(
+			page
+		)
+
+		if (
+			!allowedPages.includes(
+				page
+			)
+		) {
+
+			item.remove()
+
+		}
+
+	})
+
 }

@@ -44,6 +44,19 @@ const loginForm = document.getElementById("loginForm")
 const formTitle = document.getElementById("formTitle")
 const submitBtn = document.getElementById("submitBtn")
 const formError = document.getElementById("formError")
+const switchLink=document.getElementById("switchLink")
+const switchText=document.getElementById("switchText")
+
+switchLink.addEventListener("click",()=>{
+        if(
+            signupForm.style.display!=="none"
+        ){
+            showLogin()
+        }else{
+            showSignup()
+        }
+    }
+)
 
 // Modal elements
 const managerModal = document.getElementById("managerModal")
@@ -51,13 +64,69 @@ const inviteCodeModal = document.getElementById("inviteCodeModal")
 const employeeInviteModal = document.getElementById("employeeInviteModal")
 const companyNameModal = document.getElementById("companyNameModal")
 
-function showSignup(){
+function showSignup() {
 	signupTab.classList.add("tab--active")
 	loginTab.classList.remove("tab--active")
+
 	signupForm.style.display = "block"
 	loginForm.style.display = "none"
+
 	formTitle.innerText = "Create your account"
 	submitBtn.innerText = "Create Account"
+
+	switchText.innerHTML = `
+		Already have an account?
+		<span id="switchLink">Log in</span>
+	`
+
+	document.getElementById("switchLink").onclick = () => {
+		showLogin()
+	}
+
+	hideError()
+}
+
+function showLogin(){
+	loginTab.classList.add("tab--active")
+	signupTab.classList.remove("tab--active")
+
+	signupForm.style.display="none"
+	loginForm.style.display="block"
+
+	formTitle.innerText="Welcome back"
+	submitBtn.innerText="Log In"
+
+	switchText.innerHTML=`
+		Don't have an account?
+		<span id="switchLink">Sign up</span>
+	`
+
+	document.getElementById(
+		"switchLink"
+	).onclick=showSignup
+
+	hideError()
+}
+
+function showError(message){
+
+    formError.innerText=
+    message
+
+    formError.classList.add(
+        "active"
+    )
+
+}
+
+function hideError(){
+
+    formError.innerText=""
+
+    formError.classList.remove(
+        "active"
+    )
+
 }
 
 function saveUserData(userData) {
@@ -76,14 +145,7 @@ function saveCompanyData(companyName) {
     }));
 }
 
-function showLogin(){
-	loginTab.classList.add("tab--active")
-	signupTab.classList.remove("tab--active")
-	signupForm.style.display = "none"
-	loginForm.style.display = "block"
-	formTitle.innerText = "Welcome back"
-	submitBtn.innerText = "Log In"
-}
+
 
 signupTab.onclick = showSignup
 loginTab.onclick = showLogin
@@ -284,7 +346,6 @@ document.addEventListener("click", (e) => {
 
 form.addEventListener("submit", async (event)=>{
 	event.preventDefault()
-	formError.innerText = ""
 
 	if(signupForm.style.display !== "none"){
 		const firstName = document.getElementById("firstName").value
@@ -295,27 +356,37 @@ form.addEventListener("submit", async (event)=>{
 		const role = document.querySelector('input[name="role"]:checked')?.value
 
 		if(!firstName || !lastName){
-			formError.innerText = "Please enter your first and last name"
+            showError(
+                "Please enter your first and last name"
+                )
 			return
 		}
 
 		if(!isValidEmail(email)){
-			formError.innerText = "Invalid email address"
+            showError(
+                "Invalid email address"
+            )
 			return
 		}
 
 		if(password.length < 6){
-			formError.innerText = "Password must be at least 6 characters"
+            showError(
+                "Password must be at least 6 characters"
+            )
 			return
 		}
 
 		if(password !== confirm){
-			formError.innerText = "Passwords do not match"
+            showError(
+                "Passwords do not match"
+            )
 			return
 		}
 
 		if(!role){
-			formError.innerText = "Please select a role"
+            showError(
+                "Please select a role"
+            )
 			return
 		}
 
@@ -334,37 +405,45 @@ form.addEventListener("submit", async (event)=>{
 				})
 			})
 
-			if(response.status === 201){
-				const userData = { first_name: firstName, last_name: lastName, role: role, email: email }
-				saveUserData(userData)
-				pendingRole = role
-				
-				// Setup modals before showing
-				setupModals()
-				
-				// Show appropriate modal based on role
-				if (role === "manager") {
-					showModal(managerModal)
-				} else {
-					// Employee or Client - show invitation code modal
-					const modalTitle = document.getElementById("employeeModalTitle")
-					const modalSubtitle = document.getElementById("employeeModalSubtitle")
-					
-					if (modalTitle) {
-						modalTitle.textContent = role === "employee" ? "Welcome, Employee!" : "Welcome, Client!"
-					}
-					if (modalSubtitle) {
-						modalSubtitle.textContent = "Please enter your invitation code to continue"
-					}
-					
-					showModal(employeeInviteModal)
-				}
-			}else{
-				const error = await response.text()
-				formError.innerText = error
-			}
+            if(response.ok){
+
+                hideError()
+
+                showLogin()
+
+                document.getElementById("loginEmail").value = email
+                document.getElementById("loginPassword").value = ""
+
+                showNotification(
+                    "Account created successfully! Please log in.",
+                    "success"
+                )
+
+                return
+            }else{
+
+                const error = await response.text()
+
+                if(error.toLowerCase().includes("exists")){
+
+                    showLogin()
+
+                    document.getElementById("loginEmail").value = email
+
+                    showError(
+                        "Account already exists. Please log in."
+                    )
+
+                }else{
+
+                    showError(error)
+
+                }
+            }
 		}catch(err){
-			formError.innerText = "Server connection error"
+            showError(
+                "Server connection error"
+            )
 		}
 	}else{
 		const email = document.getElementById("loginEmail").value
@@ -383,7 +462,9 @@ form.addEventListener("submit", async (event)=>{
 			})
 
 			if (!response.ok) {
-				formError.innerText = "Invalid credentials";
+                showError(
+                    "Invalid credentials"
+                )
 				return
 			}
 
@@ -397,7 +478,9 @@ form.addEventListener("submit", async (event)=>{
 			window.location.href = "../pages/dashboard/index.html"
 
 		}catch(err){
-			formError.innerText = "Server connection error"
+            showError(
+                "Server connection error"
+            )
 		}
 	}
 })

@@ -1,11 +1,28 @@
-// employees.js
-
 // ==================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ====================
 let employees = [];
 let positions = [];
 let currentFilterRole = 'all';
 let searchTerm = '';
 let editingId = null;
+
+const storedUser =
+	localStorage.getItem('userData') ||
+	localStorage.getItem('user')
+
+if (storedUser) {
+
+	const user = JSON.parse(storedUser)
+
+	if (
+		user.role === 'client'
+	) {
+
+		window.location.href =
+		'../dashboard/index.html'
+
+	}
+
+}
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', async () => {

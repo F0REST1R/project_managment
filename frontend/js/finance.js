@@ -1,4 +1,21 @@
-// finance.js
+const storedUser =
+	localStorage.getItem('userData') ||
+	localStorage.getItem('user')
+
+if (storedUser) {
+
+	const user = JSON.parse(storedUser)
+
+	if (
+		user.role === 'employee'
+	) {
+
+		window.location.href =
+		'../dashboard/index.html'
+
+	}
+
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     initCharts();

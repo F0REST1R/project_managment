@@ -21,6 +21,26 @@ const filterSelect = document.getElementById("stageFilter")
 window.allClients = []           // Хранит всех клиентов из БД
 let editingClientId = null    // ID клиента в режиме редактирования
 
+
+const storedUser =
+	localStorage.getItem('userData') ||
+	localStorage.getItem('user')
+
+if (storedUser) {
+
+	const user = JSON.parse(storedUser)
+
+	if (
+		user.role === 'employee'
+	) {
+
+		window.location.href =
+		'../dashboard/index.html'
+
+	}
+
+}
+
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', () => {
     loadClients()

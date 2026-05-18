@@ -433,16 +433,20 @@ body {
 }
 
 /* form error */
-.form-error {
-    color: #ff6b6b;
-    font-size: 14px;
-    text-align: center;
-    min-height: 20px;
-    margin: 10px 0;
-    background: rgba(255, 107, 107, 0.1);
-    padding: 8px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 107, 107, 0.2);
+.form-error{
+    display:none;
+    color:#ff6b6b;
+    font-size:14px;
+    text-align:center;
+    margin:10px 0;
+    padding:10px;
+    border-radius:30px;
+    background:rgba(255,107,107,.1);
+    border:1px solid rgba(255,107,107,.2);
+}
+
+.form-error.active{
+    display:block;
 }
 
 /* switch text */
