@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Clients</title>
+	<title>Клиенты</title>
 
 	<link rel="stylesheet" href="../../css/dashboard.css">
 	<link rel="stylesheet" href="../../css/clients.css">
@@ -30,11 +30,11 @@
 				<div class="clients-header">
 
 					<h1>
-						Clients
+						Клиенты
 					</h1>
 
 					<button class="create-client" id="openClientModal">
-						Create Client
+						Создать клиента
 					</button>
 
 				</div>
@@ -43,7 +43,7 @@
                     <div class="clients-search">
                         <input
                             type="text"
-                            placeholder="Search clients..."
+                            placeholder="Поиск клиентов..."
                             class="client-search-input"
                             id="clientSearch"
                         >
@@ -52,11 +52,11 @@
                     <div class="clients-filters">
                         <div class="filter-dropdown">
                             <select id="stageFilter" class="filter-select">
-                                <option value="all">All Stages</option>
-                                <option value="Lead">Lead</option>
-                                <option value="Commercial Offer">Commercial Offer</option>
-                                <option value="Negotiation">Negotiation</option>
-                                <option value="Signed">Signed</option>
+                                <option value="all">Все этапы</option>
+                                <option value="Lead">Лид</option>
+                                <option value="Commercial Offer">Коммерческое предложение</option>
+                                <option value="Negotiation">Переговоры</option>
+                                <option value="Signed">Подписание</option>
                             </select>
                         </div>
                     </div>
@@ -65,37 +65,38 @@
 
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>INN</th>
+                            <th>Название</th>
+                            <th>ИНН</th>
                             <th>Email</th>
-                            <th>Phone</th>
-                            <th>Stage</th>
-                            <th>Projects</th>
-                            <th>Actions</th>
+                            <th>Телефон</th>
+                            <th>Этап</th>
+                            <th>Проекты</th>
+                            <th>Действия</th>
                         </tr>
+
                     </thead>        
 
 					<tbody>
 
 						<tr>
 
-							<td>Acme Corp</td>
-							<td>7712345678</td>
-							<td>contact@acme.com</td>
-							<td>+7 900 000 00 00</td>
-							<td>Negotiation</td>
-							<td>3</td>
+							<td>Acme Corp</th>
+							<td>7712345678</th>
+							<td>contact@acme.com</th>
+							<td>+7 900 000 00 00</th>
+							<td>Переговоры</th>
+							<td>3</th>
 
 						</tr>
 
 						<tr>
 
-							<td>Tech Ltd</td>
-							<td>7722222222</td>
-							<td>tech@mail.com</td>
-							<td>+7 900 111 11 11</td>
-							<td>Active</td>
-							<td>1</td>
+							<td>Tech Ltd</th>
+							<td>7722222222</th>
+							<td>tech@mail.com</th>
+							<td>+7 900 111 11 11</th>
+							<td>Активный</th>
+							<td>1</th>
 
 						</tr>
 
@@ -115,18 +116,18 @@
 
         <div class="modal-content">
 
-            <h2>Create Client</h2>
+            <h2>Создать клиента</h2>
 
             <div class="form-group">
 
                 <label>
-                    Company name *
+                    Название компании *
                 </label>
 
                 <input
                     type="text"
                     id="clientName"
-                    placeholder="Company name"
+                    placeholder="Название компании"
                 >
 
             </div>
@@ -134,13 +135,13 @@
             <div class="form-group">
 
                 <label>
-                    INN *
+                    ИНН *
                 </label>
 
                 <input
                     type="text"
                     id="clientInn"
-                    placeholder="10 or 12 digits"
+                    placeholder="10 или 12 цифр"
                 >
 
             </div>
@@ -162,7 +163,7 @@
             <div class="form-group">
 
                 <label>
-                    Phone
+                    Телефон
                 </label>
 
                 <input
@@ -176,14 +177,14 @@
             <div class="form-group">
 
                 <label>
-                    Negotiation stage *
+                    Этап переговоров *
                 </label>
 
                 <div class="dropdown" id="stageDropdown">
 
                     <div class="dropdown-selected">
 
-                        Negotiation
+                        Переговоры
 
                         <span class="dropdown-arrow">▼</span>
 
@@ -192,19 +193,19 @@
                     <div class="dropdown-menu">
 
                         <div class="dropdown-item" data-value="Lead">
-                            Lead
+                            Лид
                         </div>
 
                         <div class="dropdown-item" data-value="Commercial Offer">
-                            Commercial Offer
+                            Коммерческое предложение
                         </div>
 
                         <div class="dropdown-item" data-value="Negotiation">
-                            Negotiation
+                            Переговоры
                         </div>
 
                         <div class="dropdown-item" data-value="Signed">
-                            Signed
+                            Подписание
                         </div>
 
                     </div>
@@ -222,11 +223,11 @@
             <div class="modal-actions">
 
                 <button id="createClientBtn">
-                    Create
+                    Создать
                 </button>
 
                 <button id="closeClientModal">
-                    Cancel
+                    Отмена
                 </button>
 
             </div>

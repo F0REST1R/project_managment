@@ -1,5 +1,3 @@
-/* Projects Page - улучшенный дизайн */
-
 .projects-header {
     display: flex;
     justify-content: space-between;
@@ -471,14 +469,14 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         flex-direction: column;
     }
     
+    .projects-table {
+        font-size: 14px;
+    }
+
     .create-project,
     .archive-btn {
         width: 100%;
         justify-content: center;
-    }
-    
-    .projects-table {
-        font-size: 14px;
     }
     
     .projects-table th,

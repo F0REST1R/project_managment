@@ -1,52 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Finance - Project Management System</title>
+    <title>Финансы - Система управления проектами</title>
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/finance.css">
 </head>
 <body>
     <div class="layout">
-        <!-- SIDEBAR -->
+        <!-- САЙДБАР -->
         <div id="sidebar"></div>
 
-        <!-- MAIN -->
+        <!-- ОСНОВНАЯ ОБЛАСТЬ -->
         <div class="main">
-            <!-- HEADER -->
+            <!-- ШАПКА -->
             <div id="header"></div>
 
-            <!-- FINANCE WORKSPACE -->
+            <!-- РАБОЧАЯ ОБЛАСТЬ ФИНАНСОВ -->
             <main class="finance-workspace">
-                <!-- Header с фильтрами -->
+                <!-- Заголовок с фильтрами -->
                 <div class="finance-header">
                     <div class="finance-header__left">
-                        <h1 class="finance-title">Financial Overview</h1>
-                        <p class="finance-subtitle">Track budgets, revenue, and project profitability</p>
+                        <h1 class="finance-title">Финансовый обзор</h1>
+                        <p class="finance-subtitle">Отслеживайте бюджеты, доходы и рентабельность проектов</p>
                     </div>
                     
                     <div class="finance-filters">
                         <div class="filter-group">
-                            <label>Period</label>
+                            <label>Период</label>
                             <select id="periodSelect" class="filter-select">
-                                <option value="month" selected>This Month</option>
-                                <option value="quarter">This Quarter</option>
-                                <option value="year">This Year</option>
-                                <option value="all">All Time</option>
+                                <option value="month" selected>Текущий месяц</option>
+                                <option value="quarter">Текущий квартал</option>
+                                <option value="year">Текущий год</option>
+                                <option value="all">За всё время</option>
                             </select>
                         </div>
                         
                         <button class="filter-btn" id="exportBtn">
                             <i data-lucide="download"></i>
-                            Export Report
+                            Экспорт отчёта
                         </button>
                         
                         <button class="create-btn" id="createOperationBtn">
                             <i data-lucide="plus"></i>
-                            New Operation
+                            Новая операция
                         </button>
                     </div>
                 </div>
@@ -58,9 +58,9 @@
                             <i data-lucide="trending-up"></i>
                         </div>
                         <div class="kpi-card__content">
-                            <span class="kpi-label">Total Revenue</span>
+                            <span class="kpi-label">Общий доход</span>
                             <span class="kpi-value" id="totalRevenue">$2.4M</span>
-                            <span class="kpi-trend trend-up">+18.5% vs last month</span>
+                            <span class="kpi-trend trend-up">+18.5% против прошлого месяца</span>
                         </div>
                     </div>
 
@@ -69,9 +69,9 @@
                             <i data-lucide="trending-down"></i>
                         </div>
                         <div class="kpi-card__content">
-                            <span class="kpi-label">Total Costs</span>
+                            <span class="kpi-label">Общие расходы</span>
                             <span class="kpi-value" id="totalCosts">$1.8M</span>
-                            <span class="kpi-trend trend-down">+12.3% vs last month</span>
+                            <span class="kpi-trend trend-down">+12.3% против прошлого месяца</span>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@
                             <i data-lucide="dollar-sign"></i>
                         </div>
                         <div class="kpi-card__content">
-                            <span class="kpi-label">Net Profit</span>
+                            <span class="kpi-label">Чистая прибыль</span>
                             <span class="kpi-value" id="netProfit">$600K</span>
                             <span class="kpi-trend trend-up">+24.8%</span>
                         </div>
@@ -91,7 +91,7 @@
                             <i data-lucide="percent"></i>
                         </div>
                         <div class="kpi-card__content">
-                            <span class="kpi-label">Profit Margin</span>
+                            <span class="kpi-label">Рентабельность</span>
                             <span class="kpi-value" id="profitMargin">25%</span>
                             <span class="kpi-trend trend-up">+5.2%</span>
                         </div>
@@ -103,7 +103,7 @@
                     <!-- График доходов/расходов -->
                     <div class="finance-card">
                         <div class="finance-card__header">
-                            <h3>Revenue vs Costs</h3>
+                            <h3>Доходы и расходы</h3>
                             <div class="card-actions">
                                 <button class="card-action">
                                     <i data-lucide="refresh-cw"></i>
@@ -118,61 +118,61 @@
                     <!-- Распределение бюджета по проектам -->
                     <div class="finance-card">
                         <div class="finance-card__header">
-                            <h3>Budget Distribution</h3>
+                            <h3>Распределение бюджета</h3>
                             <div class="card-actions">
-                                <span class="badge">Top 5 Projects</span>
+                                <span class="badge">Топ-5 проектов</span>
                             </div>
                         </div>
                         <div class="budget-list">
                             <div class="budget-item">
                                 <div class="budget-info">
-                                    <span class="budget-name">Website Redesign</span>
+                                    <span class="budget-name">Ребрендинг веб-сайта</span>
                                     <span class="budget-value">$45K / $60K</span>
                                 </div>
                                 <div class="progress-bar budget-bar">
                                     <div class="progress-fill" style="width: 75%"></div>
                                 </div>
-                                <span class="budget-remain">$15K remaining</span>
+                                <span class="budget-remain">Осталось $15K</span>
                             </div>
                             <div class="budget-item">
                                 <div class="budget-info">
-                                    <span class="budget-name">Mobile App Development</span>
+                                    <span class="budget-name">Разработка мобильного приложения</span>
                                     <span class="budget-value">$28K / $80K</span>
                                 </div>
                                 <div class="progress-bar budget-bar">
                                     <div class="progress-fill" style="width: 35%"></div>
                                 </div>
-                                <span class="budget-remain">$52K remaining</span>
+                                <span class="budget-remain">Осталось $52K</span>
                             </div>
                             <div class="budget-item">
                                 <div class="budget-info">
-                                    <span class="budget-name">Cloud Migration</span>
+                                    <span class="budget-name">Миграция в облако</span>
                                     <span class="budget-value">$12K / $120K</span>
                                 </div>
                                 <div class="progress-bar budget-bar">
                                     <div class="progress-fill" style="width: 10%"></div>
                                 </div>
-                                <span class="budget-remain">$108K remaining</span>
+                                <span class="budget-remain">Осталось $108K</span>
                             </div>
                             <div class="budget-item">
                                 <div class="budget-info">
-                                    <span class="budget-name">API Integration</span>
+                                    <span class="budget-name">Интеграция API</span>
                                     <span class="budget-value">$32K / $35K</span>
                                 </div>
                                 <div class="progress-bar budget-bar">
                                     <div class="progress-fill" style="width: 91%"></div>
                                 </div>
-                                <span class="budget-remain">$3K remaining</span>
+                                <span class="budget-remain">Осталось $3K</span>
                             </div>
                             <div class="budget-item">
                                 <div class="budget-info">
-                                    <span class="budget-name">Security Audit</span>
+                                    <span class="budget-name">Аудит безопасности</span>
                                     <span class="budget-value">$25K / $25K</span>
                                 </div>
                                 <div class="progress-bar budget-bar">
                                     <div class="progress-fill" style="width: 100%; background: #22c55e"></div>
                                 </div>
-                                <span class="budget-remain">Completed</span>
+                                <span class="budget-remain">Завершён</span>
                             </div>
                         </div>
                     </div>
@@ -180,7 +180,7 @@
                     <!-- Финансовые операции -->
                     <div class="finance-card full-width">
                         <div class="finance-card__header">
-                            <h3>Recent Financial Operations</h3>
+                            <h3>Последние финансовые операции</h3>
                             <div class="card-actions">
                                 <button class="card-action">
                                     <i data-lucide="filter"></i>
@@ -195,80 +195,80 @@
                             <table class="operations-table">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Project</th>
-                                        <th>Description</th>
-                                        <th>Type</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>Дата</th>
+                                        <th>Проект</th>
+                                        <th>Описание</th>
+                                        <th>Тип</th>
+                                        <th>Сумма</th>
+                                        <th>Статус</th>
+                                        <th>Действия</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>2026-03-15</td>
-                                        <td>Website Redesign</td>
-                                        <td>Q1 Payment</td>
-                                        <td><span class="type-badge type-income">Income</span></td>
-                                        <td class="amount income">+$25,000</td>
-                                        <td><span class="status-badge status-completed">Completed</span></td>
+                                        <td>2026-03-15</th>
+                                        <td>Ребрендинг веб-сайта</th>
+                                        <td>Платёж Q1</th>
+                                        <td><span class="type-badge type-income">Доход</span></th>
+                                        <td class="amount income">+$25,000</th>
+                                        <td><span class="status-badge status-completed">Завершено</span></th>
                                         <td>
                                             <button class="action-btn">
                                                 <i data-lucide="eye"></i>
                                             </button>
-                                        </td>
+                                         </th>
                                     </tr>
                                     <tr>
-                                        <td>2026-03-14</td>
-                                        <td>Mobile App Dev</td>
-                                        <td>Developer salaries</td>
-                                        <td><span class="type-badge type-expense">Expense</span></td>
-                                        <td class="amount expense">-$12,500</td>
-                                        <td><span class="status-badge status-completed">Completed</span></td>
+                                        <td>2026-03-14</th>
+                                        <td>Разработка мобильного приложения</th>
+                                        <td>Зарплаты разработчиков</th>
+                                        <td><span class="type-badge type-expense">Расход</span></th>
+                                        <td class="amount expense">-$12,500</th>
+                                        <td><span class="status-badge status-completed">Завершено</span></th>
                                         <td>
                                             <button class="action-btn">
                                                 <i data-lucide="eye"></i>
                                             </button>
-                                        </td>
+                                         </th>
                                     </tr>
                                     <tr>
-                                        <td>2026-03-12</td>
-                                        <td>Cloud Migration</td>
-                                        <td>AWS Services</td>
-                                        <td><span class="type-badge type-expense">Expense</span></td>
-                                        <td class="amount expense">-$5,800</td>
-                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                        <td>2026-03-12</th>
+                                        <td>Миграция в облако</th>
+                                        <td>Услуги AWS</th>
+                                        <td><span class="type-badge type-expense">Расход</span></th>
+                                        <td class="amount expense">-$5,800</th>
+                                        <td><span class="status-badge status-pending">В обработке</span></th>
                                         <td>
                                             <button class="action-btn">
                                                 <i data-lucide="eye"></i>
                                             </button>
-                                        </td>
+                                         </th>
                                     </tr>
                                     <tr>
-                                        <td>2026-03-10</td>
-                                        <td>API Integration</td>
-                                        <td>Final milestone</td>
-                                        <td><span class="type-badge type-income">Income</span></td>
-                                        <td class="amount income">+$15,000</td>
-                                        <td><span class="status-badge status-completed">Completed</span></td>
+                                        <td>2026-03-10</th>
+                                        <td>Интеграция API</th>
+                                        <td>Финальный этап</th>
+                                        <td><span class="type-badge type-income">Доход</span></th>
+                                        <td class="amount income">+$15,000</th>
+                                        <td><span class="status-badge status-completed">Завершено</span></th>
                                         <td>
                                             <button class="action-btn">
                                                 <i data-lucide="eye"></i>
                                             </button>
-                                        </td>
+                                         </th>
                                     </tr>
                                     <tr>
-                                        <td>2026-03-08</td>
-                                        <td>Security Audit</td>
-                                        <td>Final payment</td>
-                                        <td><span class="type-badge type-income">Income</span></td>
-                                        <td class="amount income">+$25,000</td>
-                                        <td><span class="status-badge status-completed">Completed</span></td>
+                                        <td>2026-03-08</th>
+                                        <td>Аудит безопасности</th>
+                                        <td>Финальный платёж</th>
+                                        <td><span class="type-badge type-income">Доход</span></th>
+                                        <td class="amount income">+$25,000</th>
+                                        <td><span class="status-badge status-completed">Завершено</span></th>
                                         <td>
                                             <button class="action-btn">
                                                 <i data-lucide="eye"></i>
                                             </button>
-                                        </td>
+                                         </th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -278,7 +278,7 @@
                     <!-- Бюджеты проектов -->
                     <div class="finance-card">
                         <div class="finance-card__header">
-                            <h3>Project Budgets</h3>
+                            <h3>Бюджеты проектов</h3>
                             <div class="card-actions">
                                 <button class="card-action">
                                     <i data-lucide="bar-chart-2"></i>
@@ -288,15 +288,15 @@
                         <div class="project-budgets">
                             <div class="budget-summary">
                                 <div class="summary-item">
-                                    <span class="summary-label">Total Budget</span>
+                                    <span class="summary-label">Общий бюджет</span>
                                     <span class="summary-value">$320K</span>
                                 </div>
                                 <div class="summary-item">
-                                    <span class="summary-label">Spent</span>
+                                    <span class="summary-label">Потрачено</span>
                                     <span class="summary-value">$142K</span>
                                 </div>
                                 <div class="summary-item">
-                                    <span class="summary-label">Remaining</span>
+                                    <span class="summary-label">Осталось</span>
                                     <span class="summary-value">$178K</span>
                                 </div>
                             </div>
@@ -309,7 +309,7 @@
                     <!-- Договоры и контракты -->
                     <div class="finance-card">
                         <div class="finance-card__header">
-                            <h3>Active Contracts</h3>
+                            <h3>Активные контракты</h3>
                             <div class="card-actions">
                                 <button class="card-action">
                                     <i data-lucide="plus"></i>
@@ -322,22 +322,22 @@
                                     <i data-lucide="file-text"></i>
                                 </div>
                                 <div class="contract-info">
-                                    <span class="contract-name">Acme Corp - Website</span>
-                                    <span class="contract-type">Fixed Price</span>
+                                    <span class="contract-name">Acme Corp - Веб-сайт</span>
+                                    <span class="contract-type">Фиксированная цена</span>
                                     <span class="contract-value">$60K</span>
                                 </div>
-                                <span class="contract-status active">Active</span>
+                                <span class="contract-status active">Активен</span>
                             </div>
                             <div class="contract-item">
                                 <div class="contract-icon">
                                     <i data-lucide="file-text"></i>
                                 </div>
                                 <div class="contract-info">
-                                    <span class="contract-name">Tech Ltd - Mobile App</span>
-                                    <span class="contract-type">T&M</span>
+                                    <span class="contract-name">Tech Ltd - Мобильное приложение</span>
+                                    <span class="contract-type">Время и материалы</span>
                                     <span class="contract-value">$80K</span>
                                 </div>
-                                <span class="contract-status active">Active</span>
+                                <span class="contract-status active">Активен</span>
                             </div>
                             <div class="contract-item">
                                 <div class="contract-icon">
@@ -345,21 +345,21 @@
                                 </div>
                                 <div class="contract-info">
                                     <span class="contract-name">Startup Inc - API</span>
-                                    <span class="contract-type">Milestone</span>
+                                    <span class="contract-type">Этапный</span>
                                     <span class="contract-value">$35K</span>
                                 </div>
-                                <span class="contract-status active">Active</span>
+                                <span class="contract-status active">Активен</span>
                             </div>
                             <div class="contract-item">
                                 <div class="contract-icon">
                                     <i data-lucide="file-text"></i>
                                 </div>
                                 <div class="contract-info">
-                                    <span class="contract-name">Enterprise Co - Cloud</span>
-                                    <span class="contract-type">Support</span>
+                                    <span class="contract-name">Enterprise Co - Облако</span>
+                                    <span class="contract-type">Поддержка</span>
                                     <span class="contract-value">$120K</span>
                                 </div>
-                                <span class="contract-status draft">Draft</span>
+                                <span class="contract-status draft">Черновик</span>
                             </div>
                         </div>
                     </div>
@@ -369,7 +369,7 @@
                 <div class="modal" id="operationModal">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2>New Financial Operation</h2>
+                            <h2>Новая финансовая операция</h2>
                             <button class="modal-close" id="closeModalBtn">
                                 <i data-lucide="x"></i>
                             </button>
@@ -377,42 +377,42 @@
                         
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>Operation Type</label>
+                                <label>Тип операции</label>
                                 <div class="type-toggle">
                                     <button class="type-option active" id="incomeType">
                                         <i data-lucide="trending-up"></i>
-                                        Income
+                                        Доход
                                     </button>
                                     <button class="type-option" id="expenseType">
                                         <i data-lucide="trending-down"></i>
-                                        Expense
+                                        Расход
                                     </button>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label>Project</label>
+                                <label>Проект</label>
                                 <select id="operationProject" class="form-select">
-                                    <option value="">Select project</option>
-                                    <option value="1">Website Redesign</option>
-                                    <option value="2">Mobile App Development</option>
-                                    <option value="3">Cloud Migration</option>
-                                    <option value="4">API Integration</option>
+                                    <option value="">Выберите проект</option>
+                                    <option value="1">Ребрендинг веб-сайта</option>
+                                    <option value="2">Разработка мобильного приложения</option>
+                                    <option value="3">Миграция в облако</option>
+                                    <option value="4">Интеграция API</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Description</label>
-                                <input type="text" id="operationDesc" class="form-input" placeholder="Enter description">
+                                <label>Описание</label>
+                                <input type="text" id="operationDesc" class="form-input" placeholder="Введите описание">
                             </div>
 
                             <div class="form-group">
-                                <label>Amount</label>
+                                <label>Сумма</label>
                                 <input type="number" id="operationAmount" class="form-input" placeholder="0.00">
                             </div>
 
                             <div class="form-group">
-                                <label>Date</label>
+                                <label>Дата</label>
                                 <input type="date" id="operationDate" class="form-input">
                             </div>
 
@@ -420,8 +420,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button class="modal-btn modal-btn--secondary" id="cancelModalBtn">Cancel</button>
-                            <button class="modal-btn modal-btn--primary" id="saveOperationBtn">Save Operation</button>
+                            <button class="modal-btn modal-btn--secondary" id="cancelModalBtn">Отмена</button>
+                            <button class="modal-btn modal-btn--primary" id="saveOperationBtn">Сохранить</button>
                         </div>
                     </div>
                 </div>

@@ -1,47 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Project Management System</title>
+    <title>Панель управления - Система управления проектами</title>
     <link rel="stylesheet" href="../../css/dashboard.css">
 </head>
 <body>
     <div class="layout">
-        <!-- SIDEBAR -->
+        <!-- САЙДБАР -->
         <div id="sidebar"></div>
 
-        <!-- MAIN -->
+        <!-- ОСНОВНАЯ ОБЛАСТЬ -->
         <div class="main">
-            <!-- HEADER -->
+            <!-- ШАПКА -->
             <div id="header"></div>
 
-            <!-- WORKSPACE -->
+            <!-- РАБОЧАЯ ОБЛАСТЬ -->
             <main class="workspace">
                 <!-- Приветствие -->
                 <div class="welcome-section">
                     <div class="welcome-content">
-                        <h1 class="welcome-title">Welcome back, <span id="dashboardUserName">Alex</span>!</h1>
-                        <p class="welcome-subtitle">Here's what's happening with your projects today</p>
+                        <h1 class="welcome-title">С возвращением, <span id="dashboardUserName">Алекс</span>!</h1>
+                        <p class="welcome-subtitle">Вот что происходит с вашими проектами сегодня</p>
                     </div>
                 </div>
-                <!-- Announcements Section -->
+                <!-- Секция объявлений -->
                 <div class="announcements-section" id="announcementsSection" style="display: none;">
                     <div class="announcements-header">
                         <div class="announcements-title">
                             <i data-lucide="megaphone"></i>
-                            <h3>Company Announcements</h3>
+                            <h3>Объявления компании</h3>
                         </div>
                         <button class="add-announcement-btn" id="addAnnouncementBtn">
                             <i data-lucide="plus"></i>
-                            New Message
+                            Новое сообщение
                         </button>
                     </div>
                 <div class="announcements-list" id="announcementsList">
-                    <!-- Announcements will be loaded here -->
+                    <!-- Объявления будут загружены сюда -->
                 </div>
             </div>
                 <!-- Статистика в карточках -->
@@ -51,9 +51,9 @@
                             <i data-lucide="folder-kanban"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-card__label">Active Projects</span>
+                            <span class="stat-card__label">Активных проектов</span>
                             <span class="stat-card__value" id="activeProjects">12</span>
-                            <span class="stat-card__trend trend-up">+2 this week</span>
+                            <span class="stat-card__trend trend-up">+2 на этой неделе</span>
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@
                             <i data-lucide="check-circle"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-card__label">Completed Tasks</span>
+                            <span class="stat-card__label">Выполненных задач</span>
                             <span class="stat-card__value" id="completedTasks">156</span>
                             <span class="stat-card__trend trend-up">+12%</span>
                         </div>
@@ -73,9 +73,9 @@
                             <i data-lucide="clock"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-card__label">In Progress</span>
+                            <span class="stat-card__label">В работе</span>
                             <span class="stat-card__value" id="inProgressTasks">34</span>
-                            <span class="stat-card__trend">8 tasks due today</span>
+                            <span class="stat-card__trend">8 задач сегодня</span>
                         </div>
                     </div>
 
@@ -84,9 +84,9 @@
                             <i data-lucide="alert-triangle"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-card__label">Overdue Tasks</span>
+                            <span class="stat-card__label">Просроченных задач</span>
                             <span class="stat-card__value" id="overdueTasks">5</span>
-                            <span class="stat-card__trend trend-down">-3 from yesterday</span>
+                            <span class="stat-card__trend trend-down">-3 со вчера</span>
                         </div>
                     </div>
 
@@ -95,9 +95,9 @@
                             <i data-lucide="users"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-card__label">Team Members</span>
+                            <span class="stat-card__label">Участников команды</span>
                             <span class="stat-card__value" id="teamMembers">8</span>
-                            <span class="stat-card__trend">3 online now</span>
+                            <span class="stat-card__trend">3 сейчас онлайн</span>
                         </div>
                     </div>
 
@@ -106,9 +106,9 @@
                             <i data-lucide="building"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-card__label">Active Clients</span>
+                            <span class="stat-card__label">Активных клиентов</span>
                             <span class="stat-card__value" id="activeClients">24</span>
-                            <span class="stat-card__trend">+4 this month</span>
+                            <span class="stat-card__trend">+4 в этом месяце</span>
                         </div>
                     </div>
                 </div>
@@ -118,11 +118,11 @@
                     <!-- График активности -->
                     <div class="analytics-card">
                         <div class="analytics-card__header">
-                            <h3>Project Activity</h3>
+                            <h3>Активность проектов</h3>
                             <select class="analytics-select">
-                                <option>Last 7 days</option>
-                                <option>Last 30 days</option>
-                                <option>Last 3 months</option>
+                                <option>Последние 7 дней</option>
+                                <option>Последние 30 дней</option>
+                                <option>Последние 3 месяца</option>
                             </select>
                         </div>
                         <div class="analytics-chart">
@@ -133,49 +133,49 @@
                     <!-- Статус проектов -->
                     <div class="analytics-card">
                         <div class="analytics-card__header">
-                            <h3>Project Status</h3>
-                            <span class="analytics-badge">Updated now</span>
+                            <h3>Статус проектов</h3>
+                            <span class="analytics-badge">Обновлено сейчас</span>
                         </div>
                         <div class="project-status-list">
                             <div class="project-status-item">
                                 <div class="project-status-info">
-                                    <span class="project-name">Website Redesign</span>
+                                    <span class="project-name">Ребрендинг веб-сайта</span>
                                     <span class="project-progress">75%</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress-bar-fill" style="width: 75%"></div>
                                 </div>
                                 <div class="project-meta">
-                                    <span><i data-lucide="clock"></i> Due in 5 days</span>
-                                    <span><i data-lucide="users"></i> 4 members</span>
+                                    <span><i data-lucide="clock"></i> Через 5 дней</span>
+                                    <span><i data-lucide="users"></i> 4 участника</span>
                                 </div>
                             </div>
 
                             <div class="project-status-item">
                                 <div class="project-status-info">
-                                    <span class="project-name">Mobile App Development</span>
+                                    <span class="project-name">Разработка мобильного приложения</span>
                                     <span class="project-progress">45%</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress-bar-fill" style="width: 45%"></div>
                                 </div>
                                 <div class="project-meta">
-                                    <span><i data-lucide="clock"></i> Due in 12 days</span>
-                                    <span><i data-lucide="users"></i> 6 members</span>
+                                    <span><i data-lucide="clock"></i> Через 12 дней</span>
+                                    <span><i data-lucide="users"></i> 6 участников</span>
                                 </div>
                             </div>
 
                             <div class="project-status-item">
                                 <div class="project-status-info">
-                                    <span class="project-name">Backend API Integration</span>
+                                    <span class="project-name">Интеграция бэкенд API</span>
                                     <span class="project-progress">90%</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress-bar-fill" style="width: 90%"></div>
                                 </div>
                                 <div class="project-meta">
-                                    <span><i data-lucide="clock"></i> Due in 2 days</span>
-                                    <span><i data-lucide="users"></i> 3 members</span>
+                                    <span><i data-lucide="clock"></i> Через 2 дня</span>
+                                    <span><i data-lucide="users"></i> 3 участника</span>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                     <!-- Распределение задач -->
                     <div class="analytics-card">
                         <div class="analytics-card__header">
-                            <h3>Tasks Distribution</h3>
+                            <h3>Распределение задач</h3>
                         </div>
                         <div class="distribution-chart">
                             <canvas id="distributionChart"></canvas>
@@ -192,19 +192,19 @@
                         <div class="distribution-legend">
                             <div class="legend-item">
                                 <span class="legend-color" style="background: #28623A"></span>
-                                <span>To Do (23)</span>
+                                <span>К выполнению (23)</span>
                             </div>
                             <div class="legend-item">
                                 <span class="legend-color" style="background: #eab308"></span>
-                                <span>In Progress (34)</span>
+                                <span>В работе (34)</span>
                             </div>
                             <div class="legend-item">
                                 <span class="legend-color" style="background: #3b82f6"></span>
-                                <span>Review (12)</span>
+                                <span>На проверке (12)</span>
                             </div>
                             <div class="legend-item">
                                 <span class="legend-color" style="background: #22c55e"></span>
-                                <span>Completed (156)</span>
+                                <span>Завершено (156)</span>
                             </div>
                         </div>
                     </div>
@@ -212,36 +212,36 @@
                     <!-- Последние активности -->
                     <div class="analytics-card">
                         <div class="analytics-card__header">
-                            <h3>Recent Activity</h3>
-                            <button class="analytics-btn">View all</button>
+                            <h3>Последняя активность</h3>
+                            <button class="analytics-btn">Все</button>
                         </div>
                         <div class="activity-feed">
                             <div class="activity-item">
                                 <div class="activity-avatar" style="background: #28623A">JD</div>
                                 <div class="activity-content">
-                                    <p><strong>John Doe</strong> completed task "Design review"</p>
-                                    <span class="activity-time">5 minutes ago</span>
+                                    <p><strong>Иван Петров</strong> завершил задачу "Дизайн-ревью"</p>
+                                    <span class="activity-time">5 минут назад</span>
                                 </div>
                             </div>
                             <div class="activity-item">
                                 <div class="activity-avatar" style="background: #eab308">AS</div>
                                 <div class="activity-content">
-                                    <p><strong>Alice Smith</strong> added new comment</p>
-                                    <span class="activity-time">15 minutes ago</span>
+                                    <p><strong>Анна Смирнова</strong> добавила новый комментарий</p>
+                                    <span class="activity-time">15 минут назад</span>
                                 </div>
                             </div>
                             <div class="activity-item">
                                 <div class="activity-avatar" style="background: #3b82f6">RJ</div>
                                 <div class="activity-content">
-                                    <p><strong>Robert Johnson</strong> created new project</p>
-                                    <span class="activity-time">1 hour ago</span>
+                                    <p><strong>Роберт Джонсон</strong> создал новый проект</p>
+                                    <span class="activity-time">1 час назад</span>
                                 </div>
                             </div>
                             <div class="activity-item">
                                 <div class="activity-avatar" style="background: #22c55e">MW</div>
                                 <div class="activity-content">
-                                    <p><strong>Mary Williams</strong> updated task status</p>
-                                    <span class="activity-time">2 hours ago</span>
+                                    <p><strong>Мария Соколова</strong> обновила статус задачи</p>
+                                    <span class="activity-time">2 часа назад</span>
                                 </div>
                             </div>
                         </div>
@@ -250,7 +250,7 @@
             </main>
         </div>
     </div>
-    <!-- Modal for creating announcement -->
+    <!-- Модальное окно для создания объявления -->
     <div class="modal-overlay" id="announcementModal">
         <div class="modal-container modal-small">
             <div class="modal-icon">
@@ -260,21 +260,21 @@
                     <line x1="12" y1="7" x2="12" y2="13"/>
                 </svg>
             </div>
-            <h2 class="modal-title">New Announcement</h2>
-            <p class="modal-subtitle">Write a message for your team members</p>
+            <h2 class="modal-title">Новое объявление</h2>
+            <p class="modal-subtitle">Напишите сообщение для вашей команды</p>
             
             <div class="announcement-input-group">
-                <textarea id="announcementText" class="announcement-textarea" placeholder="Write your message here..." maxlength="500" rows="4"></textarea>
+                <textarea id="announcementText" class="announcement-textarea" placeholder="Напишите ваше сообщение здесь..." maxlength="500" rows="4"></textarea>
                 <div class="char-count"><span id="charCount">0</span>/500</div>
             </div>
             
             <div class="modal-buttons">
-                <button class="modal-btn-secondary" id="cancelAnnouncementBtn">Cancel</button>
-                <button class="modal-btn-primary" id="postAnnouncementBtn">Post Message</button>
+                <button class="modal-btn-secondary" id="cancelAnnouncementBtn">Отмена</button>
+                <button class="modal-btn-primary" id="postAnnouncementBtn">Опубликовать</button>
             </div>
         </div>
     </div>
-    <!-- Modal for delete confirmation -->
+    <!-- Модальное окно для подтверждения удаления -->
     <div class="modal-overlay" id="deleteConfirmModal">
         <div class="modal-container modal-small modal-delete">
             <div class="modal-icon delete-icon">
@@ -284,12 +284,12 @@
                     <line x1="12" y1="16" x2="12.01" y2="16"/>
                 </svg>
             </div>
-            <h2 class="modal-title delete-title">Delete Announcement?</h2>
-            <p class="modal-subtitle delete-subtitle">This action cannot be undone. The message will be permanently removed.</p>
+            <h2 class="modal-title delete-title">Удалить объявление?</h2>
+            <p class="modal-subtitle delete-subtitle">Это действие невозможно отменить. Сообщение будет удалено навсегда.</p>
             
             <div class="modal-buttons delete-buttons">
-                <button class="modal-btn-secondary" id="cancelDeleteBtn">Cancel</button>
-                <button class="modal-btn-delete" id="confirmDeleteBtn">Delete</button>
+                <button class="modal-btn-secondary" id="cancelDeleteBtn">Отмена</button>
+                <button class="modal-btn-delete" id="confirmDeleteBtn">Удалить</button>
             </div>
         </div>
     </div>

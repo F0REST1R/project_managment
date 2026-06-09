@@ -205,8 +205,8 @@ function initUserInterface() {
         loadClientProjects();
     } 
     else if (userRole === 'manager') {
-        if (title) title.textContent = 'All Tasks';
-        if (subtitle) subtitle.textContent = 'Overview of all team tasks';
+        if (title) title.textContent = 'Все задачи';
+        if (subtitle) subtitle.textContent = 'Обзор всех командных задач';
         if (managerStats) managerStats.style.display = 'grid';
         if (clientStats) clientStats.style.display = 'none';
         if (projectSelector) projectSelector.style.display = 'block';
@@ -305,8 +305,8 @@ function renderListView(tasksArray) {
         container.innerHTML = `
             <div class="empty-state">
                 <i data-lucide="check-circle"></i>
-                <h3>No tasks found</h3>
-                <p>${currentUser.role === 'employee' ? 'You have no tasks assigned.' : 'No tasks match your filters.'}</p>
+                <h3>Задач нету</h3>
+                <p>${currentUser.role === 'employee' ? 'У вас нет никаких назначенных задач.' : 'Ни одна задача не соответствует вашим фильтрам.'}</p>
                 ${currentUser.role === 'manager' ? '<button class="create-task-btn empty-state-btn" onclick="document.getElementById(\'createTaskBtn\').click()"><i data-lucide="plus"></i>Create Task</button>' : ''}
             </div>
         `;
@@ -489,8 +489,8 @@ function updatePageHeaderForSelectedProject() {
 function resetPageHeader() {
     const title = document.getElementById('pageTitle');
     const subtitle = document.getElementById('pageSubtitle');
-    if (title) title.textContent = 'All Tasks';
-    if (subtitle) subtitle.textContent = 'Overview of all team tasks';
+    if (title) title.textContent = 'Все задачи';
+    if (subtitle) subtitle.textContent = 'Обзор всех командных задач';
     
     const backBtn = document.querySelector('.back-to-projects');
     if (backBtn) backBtn.remove();

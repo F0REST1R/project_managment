@@ -1,9 +1,9 @@
 const cards = [
-	"Fast project management",
-	"Real-time task tracking",
-	"Built for small teams",
-	"Secure cloud storage",
-	"Simple and powerful interface"
+	"Эффективное управление проектами",
+	"Контроль выполнения задач в реальном времени",
+	"Решение для небольших команд",
+	"Безопасное хранение информации",
+	"Современный и удобный интерфейс"
 ]
 
 const track = document.querySelector(".carousel__track")
@@ -71,12 +71,12 @@ function showSignup() {
 	signupForm.style.display = "block"
 	loginForm.style.display = "none"
 
-	formTitle.innerText = "Create your account"
-	submitBtn.innerText = "Create Account"
+	formTitle.innerText = "Создание учетной записи"
+	submitBtn.innerText = "Зарегестрироваться"
 
 	switchText.innerHTML = `
-		Already have an account?
-		<span id="switchLink">Log in</span>
+		У Вас есть аккаунт?
+		<span id="switchLink">Вход</span>
 	`
 
 	document.getElementById("switchLink").onclick = () => {
@@ -93,12 +93,12 @@ function showLogin(){
 	signupForm.style.display="none"
 	loginForm.style.display="block"
 
-	formTitle.innerText="Welcome back"
-	submitBtn.innerText="Log In"
+	formTitle.innerText="Добро пожаловать!"
+	submitBtn.innerText="Вход"
 
 	switchText.innerHTML=`
-		Don't have an account?
-		<span id="switchLink">Sign up</span>
+		Нет аккаунта?
+		<span id="switchLink">Зарегестрироваться</span>
 	`
 
 	document.getElementById(

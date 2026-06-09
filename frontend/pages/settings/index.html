@@ -1,97 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <script src="https://unpkg.com/lucide@latest"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Settings - Project Management System</title>
+    <title>Настройки - Система управления проектами</title>
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/settings.css">
 </head>
 <body>
     <div class="layout">
-        <!-- SIDEBAR -->
+        <!-- САЙДБАР -->
         <div id="sidebar"></div>
 
-        <!-- MAIN -->
+        <!-- ОСНОВНАЯ ОБЛАСТЬ -->
         <div class="main">
-            <!-- HEADER -->
+            <!-- ШАПКА -->
             <div id="header"></div>
 
-            <!-- SETTINGS WORKSPACE -->
+            <!-- РАБОЧАЯ ОБЛАСТЬ НАСТРОЕК -->
             <main class="settings-workspace">
                 <div class="settings-header">
-                    <h1 class="settings-title">Settings</h1>
+                    <h1 class="settings-title">Настройки</h1>
                 </div>
 
                 <div class="settings-container">
-                    <!-- Profile Settings -->
+                    <!-- Настройки профиля -->
                     <div class="settings-card">
                         <div class="settings-card__header">
                             <i data-lucide="user" class="settings-card__icon"></i>
-                            <h2>Profile Information</h2>
+                            <h2>Информация профиля</h2>
                         </div>
                         
                         <div class="settings-form">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" id="firstName" class="settings-input" placeholder="Enter first name">
+                                    <label for="firstName">Имя</label>
+                                    <input type="text" id="firstName" class="settings-input" placeholder="Введите имя">
                                     <span class="input-error" id="firstNameError"></span>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" id="lastName" class="settings-input" placeholder="Enter last name">
+                                    <label for="lastName">Фамилия</label>
+                                    <input type="text" id="lastName" class="settings-input" placeholder="Введите фамилию">
                                     <span class="input-error" id="lastNameError"></span>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" class="settings-input" placeholder="Enter email" readonly>
-                                <span class="input-hint">Email cannot be changed</span>
+                                <label for="email">Адрес электронной почты</label>
+                                <input type="email" id="email" class="settings-input" placeholder="Введите email" readonly>
+                                <span class="input-hint">Email невозможно изменить</span>
                             </div>
 
                             <div class="form-group">
-                                <label for="role">Role</label>
+                                <label for="role">Роль</label>
                                 <input type="text" id="role" class="settings-input" readonly>
-                                <span class="input-hint">Role is assigned by administrator</span>
+                                <span class="input-hint">Роль назначается администратором</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Change Password -->
+                    <!-- Смена пароля -->
                     <div class="settings-card">
                         <div class="settings-card__header">
                             <i data-lucide="lock" class="settings-card__icon"></i>
-                            <h2>Change Password</h2>
+                            <h2>Сменить пароль</h2>
                         </div>
                         
                         <div class="settings-form">
                             <div class="form-group">
-                                <label for="currentPassword">Current Password</label>
+                                <label for="currentPassword">Текущий пароль</label>
                                 <div class="password-field">
-                                    <input type="password" id="currentPassword" class="settings-input" placeholder="Enter current password">
+                                    <input type="password" id="currentPassword" class="settings-input" placeholder="Введите текущий пароль">
                                     <i data-lucide="eye" class="toggle-password" onclick="togglePassword('currentPassword')"></i>
                                 </div>
                                 <span class="input-error" id="currentPasswordError"></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="newPassword">New Password</label>
+                                <label for="newPassword">Новый пароль</label>
                                 <div class="password-field">
-                                    <input type="password" id="newPassword" class="settings-input" placeholder="Enter new password">
+                                    <input type="password" id="newPassword" class="settings-input" placeholder="Введите новый пароль">
                                     <i data-lucide="eye" class="toggle-password" onclick="togglePassword('newPassword')"></i>
                                 </div>
-                                <span class="input-hint">Minimum 6 characters</span>
+                                <span class="input-hint">Минимум 6 символов</span>
                                 <span class="input-error" id="newPasswordError"></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="confirmPassword">Confirm New Password</label>
+                                <label for="confirmPassword">Подтвердите новый пароль</label>
                                 <div class="password-field">
-                                    <input type="password" id="confirmPassword" class="settings-input" placeholder="Confirm new password">
+                                    <input type="password" id="confirmPassword" class="settings-input" placeholder="Подтвердите новый пароль">
                                     <i data-lucide="eye" class="toggle-password" onclick="togglePassword('confirmPassword')"></i>
                                 </div>
                                 <span class="input-error" id="confirmPasswordError"></span>
@@ -99,42 +99,42 @@
                         </div>
                     </div>
 
-                    <!-- Feedback & Support -->
+                    <!-- Обратная связь и поддержка -->
                     <div class="settings-card">
                         <div class="settings-card__header">
                             <i data-lucide="message-circle" class="settings-card__icon"></i>
-                            <h2>Feedback & Support</h2>
+                            <h2>Обратная связь и поддержка</h2>
                         </div>
                         
                         <div class="settings-form">
                             <div class="form-group">
-                                <label for="feedbackType">Type</label>
+                                <label for="feedbackType">Тип</label>
                                 <select id="feedbackType" class="settings-select">
-                                    <option value="bug">Bug Report</option>
-                                    <option value="feature">Feature Request</option>
-                                    <option value="question">Question</option>
-                                    <option value="other">Other</option>
+                                    <option value="bug">Сообщить об ошибке</option>
+                                    <option value="feature">Запрос функции</option>
+                                    <option value="question">Вопрос</option>
+                                    <option value="other">Другое</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="feedbackSubject">Subject</label>
-                                <input type="text" id="feedbackSubject" class="settings-input" placeholder="Brief subject">
+                                <label for="feedbackSubject">Тема</label>
+                                <input type="text" id="feedbackSubject" class="settings-input" placeholder="Краткая тема">
                                 <span class="input-error" id="subjectError"></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="feedbackMessage">Message</label>
-                                <textarea id="feedbackMessage" class="settings-textarea" rows="4" placeholder="Describe your issue or suggestion..."></textarea>
+                                <label for="feedbackMessage">Сообщение</label>
+                                <textarea id="feedbackMessage" class="settings-textarea" rows="4" placeholder="Опишите вашу проблему или предложение..."></textarea>
                                 <span class="input-error" id="messageError"></span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Action Buttons -->
+                    <!-- Кнопки действий -->
                     <div class="settings-actions">
-                        <button class="settings-btn settings-btn--secondary" id="cancelBtn">Cancel</button>
-                        <button class="settings-btn settings-btn--primary" id="saveProfileBtn">Save Changes</button>
+                        <button class="settings-btn settings-btn--secondary" id="cancelBtn">Отмена</button>
+                        <button class="settings-btn settings-btn--primary" id="saveProfileBtn">Сохранить изменения</button>
                     </div>
                 </div>
             </main>

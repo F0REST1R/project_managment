@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 	<script src="https://unpkg.com/lucide@latest"></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Project</title>
+	<title>Проект</title>
 
 	<link rel="stylesheet" href="../../css/dashboard.css">
 	<link rel="stylesheet" href="../../css/project.css">
@@ -17,40 +17,40 @@
 
 	<div class="layout">
 
-		<!-- SIDEBAR (layout component) -->
+		<!-- САЙДБАР (компонент макета) -->
 
 		<div id="sidebar"></div>
 
-		<!-- MAIN -->
+		<!-- ОСНОВНАЯ ОБЛАСТЬ -->
 
 		<div class="main">
 
-			<!-- HEADER (layout component) -->
+			<!-- ШАПКА (компонент макета) -->
 
 			<div id="header"></div>
 
-			<!-- WORKSPACE -->
+			<!-- РАБОЧАЯ ОБЛАСТЬ -->
 
 			<main class="workspace">
 
 				<div class="project-header">
 
 					<h1>
-						CRM System
+						CRM Система
 					</h1>
 
 					<div class="project-info">
 
 						<span>
-							Client: Acme Corp
+							Клиент: Acme Corp
 						</span>
 
 						<span>
-							Status: In Progress
+							Статус: В работе
 						</span>
 
 						<span>
-							Manager: Alex Lesnik
+							Менеджер: Алексей Лесник
 						</span>
 
 					</div>
@@ -59,49 +59,49 @@
 						class="create-task"
 						id="openTaskModal"
 					>
-						Create Task
+						Создать задачу
 					</button>
 
 				</div>
 
-				<!-- PROJECT TABS -->
+				<!-- ВКЛАДКИ ПРОЕКТА -->
 
 				<div class="project-tabs">
 
 					<button class="tab tab--active">
-						Overview
+						Обзор
 					</button>
 
 					<button class="tab">
-						Tasks
+						Задачи
 					</button>
 
 					<button class="tab">
-						Team
+						Команда
 					</button>
 
 					<button class="tab">
-						Budget
+						Бюджет
 					</button>
 
 					<button class="tab">
-						Documents
+						Документы
 					</button>
 
 				</div>
 
-				<!-- PROJECT CONTENT -->
+				<!-- СОДЕРЖИМОЕ ПРОЕКТА -->
 
 				<div class="project-content">
 
 					<div class="kanban">
 
-						<!-- COLUMN NEW -->
+						<!-- КОЛОНКА НОВЫЕ -->
 
 						<div class="kanban-column">
 
 							<h3>
-								New
+								Новые
 							</h3>
 
 							<div
@@ -113,26 +113,26 @@
 									class="task-card"
 									draggable="true"
 								>
-									Design login page
+									Дизайн страницы входа
 								</div>
 
 								<div
 									class="task-card"
 									draggable="true"
 								>
-									Create API structure
+									Создать структуру API
 								</div>
 
 							</div>
 
 						</div>
 
-						<!-- COLUMN IN PROGRESS -->
+						<!-- КОЛОНКА В РАБОТЕ -->
 
 						<div class="kanban-column">
 
 							<h3>
-								In Progress
+								В работе
 							</h3>
 
 							<div
@@ -144,19 +144,19 @@
 									class="task-card"
 									draggable="true"
 								>
-									Implement database
+									Реализовать базу данных
 								</div>
 
 							</div>
 
 						</div>
 
-						<!-- COLUMN REVIEW -->
+						<!-- КОЛОНКА ПРОВЕРКА -->
 
 						<div class="kanban-column">
 
 							<h3>
-								Review
+								Проверка
 							</h3>
 
 							<div
@@ -168,19 +168,19 @@
 									class="task-card"
 									draggable="true"
 								>
-									Code review
+									Ревью кода
 								</div>
 
 							</div>
 
 						</div>
 
-						<!-- COLUMN DONE -->
+						<!-- КОЛОНКА ГОТОВО -->
 
 						<div class="kanban-column">
 
 							<h3>
-								Done
+								Готово
 							</h3>
 
 							<div
@@ -192,7 +192,7 @@
 									class="task-card"
 									draggable="true"
 								>
-									Project structure
+									Структура проекта
 								</div>
 
 							</div>
@@ -209,7 +209,7 @@
 
 	</div>
 
-	<!-- CREATE TASK MODAL -->
+	<!-- МОДАЛЬНОЕ ОКНО СОЗДАНИЯ ЗАДАЧИ -->
 
 	<div
 		class="modal"
@@ -219,31 +219,31 @@
 		<div class="modal-content">
 
 			<h2>
-				Create Task
+				Создать задачу
 			</h2>
 
 			<input
 				type="text"
 				id="taskTitle"
-				placeholder="Task title"
+				placeholder="Название задачи"
 			>
 
 			<select id="taskStatus">
 
 				<option value="new">
-					New
+					Новая
 				</option>
 
 				<option value="progress">
-					In Progress
+					В работе
 				</option>
 
 				<option value="review">
-					Review
+					Проверка
 				</option>
 
 				<option value="done">
-					Done
+					Готово
 				</option>
 
 			</select>
@@ -251,11 +251,11 @@
 			<div class="modal-actions">
 
 				<button id="createTaskBtn">
-					Create
+					Создать
 				</button>
 
 				<button id="closeTaskModal">
-					Cancel
+					Отмена
 				</button>
 
 			</div>
@@ -264,7 +264,7 @@
 
 	</div>
 
-	<!-- SCRIPTS -->
+	<!-- СКРИПТЫ -->
 
 	<script src="../../js/layout.js"></script>
 	<script src="../../js/kanban.js"></script>

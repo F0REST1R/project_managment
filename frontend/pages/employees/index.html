@@ -1,47 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Employees - Project Management System</title>
+    <title>Сотрудники - Система управления проектами</title>
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/employees.css">
 </head>
 <body>
     <div class="layout">
-        <!-- SIDEBAR -->
+        <!-- САЙДБАР -->
         <div id="sidebar"></div>
 
-        <!-- MAIN -->
+        <!-- ОСНОВНАЯ ОБЛАСТЬ -->
         <div class="main">
-            <!-- HEADER -->
+            <!-- ШАПКА -->
             <div id="header"></div>
 
-            <!-- EMPLOYEES WORKSPACE -->
+            <!-- РАБОЧАЯ ОБЛАСТЬ СОТРУДНИКОВ -->
             <main class="employees-workspace">
-                <!-- Header с действиями -->
+                <!-- Заголовок с действиями -->
                 <div class="employees-header">
                     <div class="employees-header__left">
-                        <h1 class="employees-title">Team Members</h1>
-                        <p class="employees-subtitle">Manage your employees, roles, and workload</p>
+                        <h1 class="employees-title">Участники команды</h1>
+                        <p class="employees-subtitle">Управляйте сотрудниками, ролями и загрузкой</p>
                     </div>
                     
                     <div class="employees-actions">
                         <div class="search-box">
                             <i data-lucide="search"></i>
-                            <input type="text" id="searchEmployee" placeholder="Search employees..." class="search-input">
+                            <input type="text" id="searchEmployee" placeholder="Поиск сотрудников..." class="search-input">
                         </div>
                         
                         <button class="filter-btn" id="filterBtn">
                             <i data-lucide="sliders"></i>
-                            Filter
+                            Фильтр
                         </button>
                         
                         <button class="create-btn" id="createEmployeeBtn">
                             <i data-lucide="plus"></i>
-                            Add Employee
+                            Добавить сотрудника
                         </button>
                     </div>
                 </div>
@@ -53,9 +53,9 @@
                             <i data-lucide="users"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-label">Total Employees</span>
+                            <span class="stat-label">Всего сотрудников</span>
                             <span class="stat-value" id="totalEmployees">24</span>
-                            <span class="stat-trend">+3 this month</span>
+                            <span class="stat-trend">+3 в этом месяце</span>
                         </div>
                     </div>
 
@@ -64,9 +64,9 @@
                             <i data-lucide="user-check"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-label">Active</span>
+                            <span class="stat-label">Активных</span>
                             <span class="stat-value" id="activeEmployees">22</span>
-                            <span class="stat-trend">92% of total</span>
+                            <span class="stat-trend">92% от общего числа</span>
                         </div>
                     </div>
 
@@ -75,9 +75,9 @@
                             <i data-lucide="user-x"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-label">Inactive</span>
+                            <span class="stat-label">Неактивных</span>
                             <span class="stat-value" id="inactiveEmployees">2</span>
-                            <span class="stat-trend">On leave</span>
+                            <span class="stat-trend">В отпуске</span>
                         </div>
                     </div>
 
@@ -86,22 +86,22 @@
                             <i data-lucide="clock"></i>
                         </div>
                         <div class="stat-card__content">
-                            <span class="stat-label">Avg Workload</span>
+                            <span class="stat-label">Средняя загрузка</span>
                             <span class="stat-value" id="avgWorkload">76%</span>
-                            <span class="stat-trend trend-up">+5% vs last month</span>
+                            <span class="stat-trend trend-up">+5% против прошлого месяца</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Фильтры по должностям -->
                 <div class="role-filters">
-                    <button class="role-filter active" data-role="all">All Roles</button>
-                    <button class="role-filter" data-role="developer">Developers</button>
-                    <button class="role-filter" data-role="designer">Designers</button>
-                    <button class="role-filter" data-role="analyst">Analysts</button>
-                    <button class="role-filter" data-role="qa">QA Engineers</button>
+                    <button class="role-filter active" data-role="all">Все роли</button>
+                    <button class="role-filter" data-role="developer">Разработчики</button>
+                    <button class="role-filter" data-role="designer">Дизайнеры</button>
+                    <button class="role-filter" data-role="analyst">Аналитики</button>
+                    <button class="role-filter" data-role="qa">Инженеры QA</button>
                     <button class="role-filter" data-role="devops">DevOps</button>
-                    <button class="role-filter" data-role="manager">Managers</button>
+                    <button class="role-filter" data-role="manager">Менеджеры</button>
                 </div>
 
                 <!-- Таблица сотрудников -->
@@ -109,13 +109,13 @@
                     <table class="employees-table">
                         <thead>
                             <tr>
-                                <th>Employee</th>
-                                <th>Position</th>
-                                <th>Hourly Rate</th>
-                                <th>Workload</th>
-                                <th>Projects</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>Сотрудник</th>
+                                <th>Должность</th>
+                                <th>Ставка в час</th>
+                                <th>Загрузка</th>
+                                <th>Проекты</th>
+                                <th>Статус</th>
+                                <th>Действия</th>
                             </tr>
                         </thead>
                         <tbody id="employeesTableBody">
@@ -126,34 +126,34 @@
                 <div class="modal" id="employeeModal">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2 id="modalTitle">Add New Employee</h2>
+                            <h2 id="modalTitle">Добавить сотрудника</h2>
                             <button class="modal-close" id="closeModalBtn">
                                 <i data-lucide="x"></i>
                             </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>User Email *</label>
-                                <input type="email" id="userEmail" class="form-input" placeholder="Enter registered user email">
-                                <span class="input-hint">User must be registered in the system</span>
+                                <label>Email пользователя *</label>
+                                <input type="email" id="userEmail" class="form-input" placeholder="Введите email зарегистрированного пользователя">
+                                <span class="input-hint">Пользователь должен быть зарегистрирован в системе</span>
                             </div>
 
                             <div class="form-group">
-                                <label>Position *</label>
+                                <label>Должность *</label>
                                 <select id="position" class="form-select">
-                                    <option value="">Select position</option>
+                                    <option value="">Выберите должность</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Hourly Rate ($) *</label>
+                                <label>Ставка в час ($) *</label>
                                 <input type="number" id="hourlyRate" class="form-input" placeholder="0.00" min="0" step="0.01">
                             </div>
 
                             <div class="form-group">
                                 <label class="checkbox-label">
                                     <input type="checkbox" id="isActive" checked>
-                                    <span>Active employee</span>
+                                    <span>Активный сотрудник</span>
                                 </label>
                             </div>
 
@@ -161,8 +161,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button class="modal-btn modal-btn--secondary" id="cancelModalBtn">Cancel</button>
-                            <button class="modal-btn modal-btn--primary" id="saveEmployeeBtn">Save Employee</button>
+                            <button class="modal-btn modal-btn--secondary" id="cancelModalBtn">Отмена</button>
+                            <button class="modal-btn modal-btn--primary" id="saveEmployeeBtn">Сохранить</button>
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                 <div class="modal" id="viewModal">
                     <div class="modal-content modal-lg">
                         <div class="modal-header">
-                            <h2>Employee Details</h2>
+                            <h2>Детали сотрудника</h2>
                             <button class="modal-close" id="closeViewModalBtn">
                                 <i data-lucide="x"></i>
                             </button>
@@ -182,10 +182,10 @@
                                 <div class="profile-header">
                                     <div class="profile-avatar" id="viewAvatar">AL</div>
                                     <div class="profile-info">
-                                        <h3 id="viewFullName">Alex Lesnik</h3>
-                                        <p id="viewPosition">Developer</p>
+                                        <h3 id="viewFullName">Алексей Лесник</h3>
+                                        <p id="viewPosition">Разработчик</p>
                                     </div>
-                                    <span class="profile-status" id="viewStatus">Active</span>
+                                    <span class="profile-status" id="viewStatus">Активен</span>
                                 </div>
 
                                 <div class="profile-details">
@@ -194,38 +194,38 @@
                                         <span class="detail-value" id="viewEmail">alex@company.com</span>
                                     </div>
                                     <div class="detail-item">
-                                        <span class="detail-label">Login</span>
+                                        <span class="detail-label">Логин</span>
                                         <span class="detail-value" id="viewLogin">alesnik</span>
                                     </div>
                                     <div class="detail-item">
-                                        <span class="detail-label">Hourly Rate</span>
+                                        <span class="detail-label">Ставка в час</span>
                                         <span class="detail-value" id="viewRate">$35.00</span>
                                     </div>
                                     <div class="detail-item">
-                                        <span class="detail-label">Total Projects</span>
+                                        <span class="detail-label">Всего проектов</span>
                                         <span class="detail-value" id="viewProjects">4</span>
                                     </div>
                                 </div>
 
                                 <div class="profile-section">
-                                    <h4>Current Projects</h4>
+                                    <h4>Текущие проекты</h4>
                                     <div class="project-list" id="viewProjectsList">
-                                        <!-- Projects will be loaded here -->
+                                        <!-- Проекты будут загружены сюда -->
                                     </div>
                                 </div>
 
                                 <div class="profile-section">
-                                    <h4>Recent Activity</h4>
+                                    <h4>Недавняя активность</h4>
                                     <div class="activity-list" id="viewActivity">
-                                        <!-- Activity will be loaded here -->
+                                        <!-- Активность будет загружена сюда -->
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button class="modal-btn modal-btn--primary" id="editFromViewBtn">Edit Employee</button>
-                            <button class="modal-btn modal-btn--secondary" id="closeViewBtn">Close</button>
+                            <button class="modal-btn modal-btn--primary" id="editFromViewBtn">Редактировать</button>
+                            <button class="modal-btn modal-btn--secondary" id="closeViewBtn">Закрыть</button>
                         </div>
                     </div>
                 </div>

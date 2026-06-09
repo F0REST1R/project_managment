@@ -1,107 +1,102 @@
-const pool=require('../config/db')
-const bcrypt=require('bcryptjs')
+const pool =
+	require('../config/db')
 
-class AuthService{
+const bcrypt =
+	require('bcryptjs')
 
-async register(user){
+class AuthService {
+	async register(user) {
+		const hash =
+			await bcrypt.hash(
+				user.password,
+				10
+			)
+		await pool.query(
+			`
+			INSERT INTO users
+			(first_name,last_name,email,password,role)
+			VALUES($1,$2,$3,$4,$5)
+			`,
+			[
+				user.first_name,
+				user.last_name,
+				user.email,
+				hash,
+				user.role
+			]
+		)
+	}
+	async login(email,password) {
 
-const hash=
-await bcrypt.hash(
-    user.password,
-    10
-)
+		const result =
+			await pool.query(
 
-await pool.query(
+				`
+				SELECT *
+				FROM users
+				WHERE email=$1
+				`,
 
-`
-INSERT INTO users
-(first_name,last_name,email,password,role)
-VALUES($1,$2,$3,$4,$5)
-`,
+				[email]
 
-[
-user.first_name,
-user.last_name,
-user.email,
-hash,
-user.role
-]
+			)
 
-)
+		if(result.rows.length === 0) {
 
-}
+			throw new Error(
+				'User not found'
+			)
 
-async login(email,password){
+		}
 
-const result=
-await pool.query(
+		const user =
+			result.rows[0]
 
-`
-SELECT *
-FROM users
-WHERE email=$1
-`,
+		const valid =
+			await bcrypt.compare(
 
-[email]
+				password,
+				user.password
 
-)
+			)
 
-if(result.rows.length===0){
+		if(!valid) {
 
-throw new Error(
-'User not found'
-)
+			throw new Error(
+				'Wrong password'
+			)
 
-}
+		}
 
-const user=
-result.rows[0]
+		return user
 
-const valid=
-await bcrypt.compare(
+	}
 
-password,
-user.password
+	async getUserById(id) {
 
-)
+		const result =
+			await pool.query(
 
-if(!valid){
+				`
+				SELECT
+				id,
+				first_name,
+				last_name,
+				email,
+				role
+				FROM users
+				WHERE id=$1
+				`,
 
-throw new Error(
-'Wrong password'
-)
+				[id]
 
-}
+			)
 
-return user
+		return result.rows[0]
 
-}
-
-async getUserById(id){
-
-const result=
-await pool.query(
-
-`
-SELECT
-id,
-first_name,
-last_name,
-email,
-role
-FROM users
-WHERE id=$1
-`,
-
-[id]
-
-)
-
-return result.rows[0]
+	}
 
 }
 
-}
-
-module.exports=
-new AuthService()
+module.exports =
+	new AuthService()

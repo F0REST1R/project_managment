@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <script src="https://unpkg.com/lucide@latest"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tasks - Project Management System</title>
+    <title>Задачи - Система управления проектами</title>
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/tasks.css">
 </head>
 <body>
     <div class="layout">
-        <!-- SIDEBAR -->
+        <!-- САЙДБАР -->
         <div id="sidebar"></div>
 
-        <!-- MAIN -->
+        <!-- ОСНОВНАЯ ОБЛАСТЬ -->
         <div class="main">
-            <!-- HEADER -->
+            <!-- ШАПКА -->
             <div id="header"></div>
 
-            <!-- TASKS WORKSPACE -->
+            <!-- РАБОЧАЯ ОБЛАСТЬ ЗАДАЧ -->
             <main class="tasks-workspace">
-                <!-- Header с приветствием и ролью -->
+                <!-- Заголовок с приветствием и ролью -->
                 <div class="tasks-header">
                     <div class="tasks-header__left">
                         <button class="projects-link-btn" id="projectsLinkBtn">
                             <i data-lucide="folder-kanban"></i>
-                            Projects
+                            Проекты
                         </button>
-                        <h1 class="tasks-title" id="pageTitle">My Tasks</h1>
-                        <p class="tasks-subtitle" id="pageSubtitle">Manage your tasks and stay productive</p>
+                        <h1 class="tasks-title" id="pageTitle">Мои задачи</h1>
+                        <p class="tasks-subtitle" id="pageSubtitle">Управляйте задачами и оставайтесь продуктивными</p>
                     </div>                   
                     <div class="tasks-actions">
                         <button class="create-task-btn" id="createTaskBtn">
                             <i data-lucide="plus"></i>
-                            New Task
+                            Новая задача
                         </button>
                     </div>
                 </div>
@@ -41,24 +41,24 @@
                 <!-- Фильтры (для всех ролей) -->
                 <div class="filters-section">
                     <div class="filter-tabs" id="filterTabs">
-                        <button class="filter-tab active" data-filter="all">All Tasks</button>
-                        <button class="filter-tab" data-filter="today">Today</button>
-                        <button class="filter-tab" data-filter="upcoming">Upcoming</button>
-                        <button class="filter-tab" data-filter="overdue">Overdue</button>
-                        <button class="filter-tab" data-filter="completed">Completed</button>
+                        <button class="filter-tab active" data-filter="all">Все задачи</button>
+                        <button class="filter-tab" data-filter="today">Сегодня</button>
+                        <button class="filter-tab" data-filter="upcoming">Предстоящие</button>
+                        <button class="filter-tab" data-filter="overdue">Просроченные</button>
+                        <button class="filter-tab" data-filter="completed">Завершённые</button>
                     </div>
 
                     <div class="filter-controls">
-                        <!-- Sort options -->
+                        <!-- Опции сортировки -->
                         <div class="sort-selector">
                             <select id="sortBy" class="sort-select">
-                                <option value="dueDate">Sort by Due Date</option>
-                                <option value="priority">Sort by Priority</option>
-                                <option value="project">Sort by Project</option>
+                                <option value="dueDate">Сортировать по дате</option>
+                                <option value="priority">Сортировать по приоритету</option>
+                                <option value="project">Сортировать по проекту</option>
                             </select>
                         </div>
 
-                        <!-- View toggle -->
+                        <!-- Переключение вида -->
                         <div class="view-toggle">
                             <button class="view-btn active" data-view="list">
                                 <i data-lucide="list"></i>
@@ -77,7 +77,7 @@
                             <i data-lucide="check-circle"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-label">Completed Today</span>
+                            <span class="stat-label">Завершено сегодня</span>
                             <span class="stat-value" id="completedToday">12</span>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                             <i data-lucide="clock"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-label">In Progress</span>
+                            <span class="stat-label">В работе</span>
                             <span class="stat-value" id="inProgress">34</span>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                             <i data-lucide="alert-triangle"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-label">Overdue</span>
+                            <span class="stat-label">Просроченные</span>
                             <span class="stat-value" id="overdueTasks">5</span>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                             <i data-lucide="users"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-label">Team Members</span>
+                            <span class="stat-label">Участников команды</span>
                             <span class="stat-value" id="teamMembers">8</span>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                             <i data-lucide="folder-kanban"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-label">Active Projects</span>
+                            <span class="stat-label">Активных проектов</span>
                             <span class="stat-value" id="clientProjects">3</span>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                             <i data-lucide="check-circle"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-label">Completed</span>
+                            <span class="stat-label">Завершённые</span>
                             <span class="stat-value" id="clientCompleted">24</span>
                         </div>
                     </div>
@@ -135,23 +135,23 @@
                             <i data-lucide="clock"></i>
                         </div>
                         <div class="stat-info">
-                            <span class="stat-label">In Progress</span>
+                            <span class="stat-label">В работе</span>
                             <span class="stat-value" id="clientInProgress">12</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tasks Container - List View -->
+                <!-- Контейнер задач - Список -->
                 <div class="tasks-container" id="listView">
                     <div class="tasks-list" id="tasksList">
-                        <!-- Tasks will be loaded here -->
+                        <!-- Задачи будут загружены сюда -->
                     </div>
                 </div>
 
-                <!-- Tasks Container - Board View (Kanban) -->
+                <!-- Контейнер задач - Доска (Канбан) -->
                 <div class="tasks-container board-view" id="boardView" style="display: none;">
                     <div class="kanban-board" id="kanbanBoard">
-                        <!-- Kanban columns will be loaded here -->
+                        <!-- Колонки канбана будут загружены сюда -->
                     </div>
                 </div>
 
@@ -159,7 +159,7 @@
                 <div class="modal" id="taskModal">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2 id="modalTitle">Create New Task</h2>
+                            <h2 id="modalTitle">Создать задачу</h2>
                             <button class="modal-close" id="closeModalBtn">
                                 <i data-lucide="x"></i>
                             </button>
@@ -167,49 +167,49 @@
                         
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>Project *</label>
+                                <label>Проект *</label>
                                 <select id="taskProject" class="form-select">
-                                    <option value="">Select project</option>
+                                    <option value="">Выберите проект</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Task Title *</label>
-                                <input type="text" id="taskTitle" class="form-input" placeholder="Enter task title">
+                                <label>Название задачи *</label>
+                                <input type="text" id="taskTitle" class="form-input" placeholder="Введите название задачи">
                             </div>
 
                             <div class="form-group">
-                                <label>Description</label>
-                                <textarea id="taskDescription" class="form-textarea" rows="3" placeholder="Enter task description"></textarea>
+                                <label>Описание</label>
+                                <textarea id="taskDescription" class="form-textarea" rows="3" placeholder="Введите описание задачи"></textarea>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label>Assignee</label>
+                                    <label>Исполнитель</label>
                                     <select id="taskAssignee" class="form-select">
-                                        <option value="">Select assignee</option>
+                                        <option value="">Выберите исполнителя</option>
                                     </select>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Priority</label>
+                                    <label>Приоритет</label>
                                     <select id="taskPriority" class="form-select">
-                                        <option value="low">Low</option>
-                                        <option value="medium" selected>Medium</option>
-                                        <option value="high">High</option>
-                                        <option value="urgent">Urgent</option>
+                                        <option value="low">Низкий</option>
+                                        <option value="medium" selected>Средний</option>
+                                        <option value="high">Высокий</option>
+                                        <option value="urgent">Срочный</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label>Due Date</label>
+                                    <label>Срок</label>
                                     <input type="date" id="taskDueDate" class="form-input">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Planned Hours</label>
+                                    <label>Плановые часы</label>
                                     <input type="number" id="taskHours" class="form-input" placeholder="0" min="0" step="0.5">
                                 </div>
                             </div>
@@ -217,12 +217,12 @@
                             
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label>Status</label>
+                                    <label>Статус</label>
                                     <select id="taskStatus" class="form-select">
-                                        <option value="todo">To Do</option>
-                                        <option value="in-progress">In Progress</option>
-                                        <option value="review">Review</option>
-                                        <option value="done">Done</option>
+                                        <option value="todo">К выполнению</option>
+                                        <option value="in-progress">В работе</option>
+                                        <option value="review">Проверка</option>
+                                        <option value="done">Готово</option>
                                     </select>
                                 </div>
                                 
@@ -235,8 +235,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button class="modal-btn modal-btn--secondary" id="cancelModalBtn">Cancel</button>
-                            <button class="modal-btn modal-btn--primary" id="saveTaskBtn">Create Task</button>
+                            <button class="modal-btn modal-btn--secondary" id="cancelModalBtn">Отмена</button>
+                            <button class="modal-btn modal-btn--primary" id="saveTaskBtn">Создать</button>
                         </div>
                     </div>
                 </div>
@@ -245,7 +245,7 @@
                 <div class="modal" id="viewTaskModal">
                     <div class="modal-content modal-lg">
                         <div class="modal-header">
-                            <h2>Task Details</h2>
+                            <h2>Детали задачи</h2>
                             <button class="modal-close" id="closeViewModalBtn">
                                 <i data-lucide="x"></i>
                             </button>
@@ -254,51 +254,51 @@
                         <div class="modal-body">
                             <div class="task-detail-header">
                                 <div>
-                                    <h3 id="viewTaskTitle">Task Title</h3>
-                                    <p id="viewTaskProject" class="task-project">Project Name</p>
+                                    <h3 id="viewTaskTitle">Название задачи</h3>
+                                    <p id="viewTaskProject" class="task-project">Название проекта</p>
                                 </div>
-                                <span class="priority-badge" id="viewTaskPriority">Medium</span>
+                                <span class="priority-badge" id="viewTaskPriority">Средний</span>
                             </div>
 
                             <div class="task-detail-meta">
                                 <div class="meta-item">
                                     <i data-lucide="user"></i>
-                                    <span id="viewTaskAssignee">John Doe</span>
+                                    <span id="viewTaskAssignee">Иван Петров</span>
                                 </div>
                                 <div class="meta-item">
                                     <i data-lucide="calendar"></i>
-                                    <span id="viewTaskDueDate">Mar 25, 2026</span>
+                                    <span id="viewTaskDueDate">25 марта 2026</span>
                                 </div>
                                 <div class="meta-item">
                                     <i data-lucide="clock"></i>
-                                    <span id="viewTaskHours">8h planned</span>
+                                    <span id="viewTaskHours">8 ч запланировано</span>
                                 </div>
                                 <div class="meta-item">
                                     <i data-lucide="check-circle"></i>
-                                    <span id="viewTaskStatus">In Progress</span>
+                                    <span id="viewTaskStatus">В работе</span>
                                 </div>
                             </div>
 
                             <div class="task-detail-section">
-                                <h4>Description</h4>
-                                <p id="viewTaskDescription">Task description goes here...</p>
+                                <h4>Описание</h4>
+                                <p id="viewTaskDescription">Описание задачи...</p>
                             </div>
 
                             <div class="task-detail-section">
-                                <h4>Comments</h4>
+                                <h4>Комментарии</h4>
                                 <div class="comments-section" id="taskComments">
-                                    <!-- Comments will be loaded here -->
+                                    <!-- Комментарии будут загружены сюда -->
                                 </div>
                                 <div class="add-comment">
-                                    <textarea id="newComment" placeholder="Add a comment..." rows="2"></textarea>
-                                    <button class="comment-btn" id="addCommentBtn">Post Comment</button>
+                                    <textarea id="newComment" placeholder="Добавить комментарий..." rows="2"></textarea>
+                                    <button class="comment-btn" id="addCommentBtn">Опубликовать</button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button class="modal-btn modal-btn--primary" id="editTaskBtn">Edit Task</button>
-                            <button class="modal-btn modal-btn--secondary" id="closeViewBtn">Close</button>
+                            <button class="modal-btn modal-btn--primary" id="editTaskBtn">Редактировать</button>
+                            <button class="modal-btn modal-btn--secondary" id="closeViewBtn">Закрыть</button>
                         </div>
                     </div>
                 </div>
